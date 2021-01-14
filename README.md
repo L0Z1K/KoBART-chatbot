@@ -15,10 +15,8 @@
 ## Install
 
 ```python
-# KoBART 설치 
-pip install git+https://github.com/SKT-AI/KoBART#egg=kobart
-pip install pytorch_lightning
-git clone --recurse-submodules https://github.com/haven-jeon/KoBART-chatbot.git
+git clone https://github.com/L0Z1K/KoBART-chatbot.git
+pip install -r requirements.txt
 ```
 
 ## How to Train
@@ -26,11 +24,11 @@ git clone --recurse-submodules https://github.com/haven-jeon/KoBART-chatbot.git
 1. Fine-Tuning & Chat
 
 ```bash
-$ CUDA_VISIBLE_DEVICE=0 python3 script/train.py --max_epochs 3 --gpus 1 --train --chat
+$ CUDA_VISIBLE_DEVICES=0 python script/train.py --max_epochs 3 --gpus 1 --train --chat
 ```
 
 2. Only Chat with latest saved model
 
 ```bash
-$ python3 script/train.py --chat
+$ python script/train.py --chat
 ```
