@@ -15,10 +15,8 @@
 ## Install
 
 ```python
-# KoBART 설치 
-pip install git+https://github.com/SKT-AI/KoBART#egg=kobart
-pip install pytorch_lightning
 git clone https://github.com/L0Z1K/KoBART-chatbot.git
+pip install -r requirements.txt
 ```
 
 ## How to Train
