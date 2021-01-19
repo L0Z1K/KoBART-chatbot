@@ -26,11 +26,11 @@ git clone --recurse-submodules https://github.com/haven-jeon/KoBART-chatbot.git
 1. Fine-Tuning & Chat
 
 ```bash
-$ CUDA_VISIBLE_DEVICE=0 python3 script/train.py --max_epochs 3 --gpus 1 --train --chat
+$ CUDA_VISIBLE_DEVICE=0 python script/train.py --max_epochs 3 --gpus 1 --train --chat --train_file /path/to/your/file
 ```
 
 2. Only Chat with latest saved model
 
 ```bash
-$ python3 script/train.py --chat
+$ python script/train.py --chat
 ```
