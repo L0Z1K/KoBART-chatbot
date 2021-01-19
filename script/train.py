@@ -15,6 +15,11 @@ parser.add_argument('--train',
                     default=False,
                     help='train model')
 
+parser.add_argument('--load_ckpt',
+                    action='store_true',
+                    default=False,
+                    help='train model from latest checkpoint')
+
 parser.add_argument('--chat',
                     action='store_true',
                     default=False,
@@ -47,15 +52,17 @@ if __name__ == "__main__":
                                                        save_top_k=1,)
 
     trainer = pl.Trainer.from_argparse_args(args, callbacks=[checkpoint_callback])
-    if args.train:
-        trainer.fit(model, dm)
-    else:
+    
+    if args.load_ckpt or args.chat:
         state_dict = torch.load(os.path.join(os.getcwd(), args.root_dir, 'last.ckpt'))["state_dict"]
         new_state_dict = {}
         for k, v in state_dict.items():
             new_state_dict[k[6:]] = v       # delete 'model.'
         
         model.model.load_state_dict(new_state_dict)
+
+    if args.train:
+        trainer.fit(model, dm)
 
     if args.chat:
         model.model.eval()
