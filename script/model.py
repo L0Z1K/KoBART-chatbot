@@ -103,4 +103,4 @@ class KoBART(pl.LightningModule):
                                       eos_token_id=self.tokenizer.eos_token_id,
                                       bad_words_ids=[[self.tokenizer.unk_token_id]])
         a = self.tokenizer.batch_decode(res_ids.tolist())[0]
-        return a.replace('<s>', '').replace('</s>', '')
+        return a.replace('<s>', '').replace('</s>', '').strip()
