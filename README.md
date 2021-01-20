@@ -24,13 +24,13 @@ pip install -r requirements.txt
 1. Fine-Tuning & Chat
 
 ```bash
-$ CUDA_VISIBLE_DEVICE=0 python script/train.py --max_epochs 3 --gpus 1 --train --chat --train_file /path/to/your/file
+$ CUDA_VISIBLE_DEVICES=0 python script/train.py --max_epochs 3 --gpus 1 --train --chat --train_file /path/to/your/file
 ```
 
 2. Fine-Tuning from checkpoint
 
 ```bash
-$ CUDA_VISIBLE_DEVICE=0 python script/train.py --max_epochs 3 --gpus 1 --train --load-ckpt --chat --train_file /path/to/your/file
+$ CUDA_VISIBLE_DEVICES=0 python script/train.py --max_epochs 3 --gpus 1 --train --load-ckpt --chat --train_file /path/to/your/file
 ```
 
 3. Only Chat with latest saved model
