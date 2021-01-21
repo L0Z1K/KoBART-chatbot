@@ -52,8 +52,7 @@ if __name__ == "__main__":
                                                        save_top_k=1,)
 
     trainer = pl.Trainer.from_argparse_args(args,
-                                            callbacks=[checkpoint_callback],
-                                            accelerator='ddp' if int(args.gpus) > 1 else None)
+                                            callbacks=[checkpoint_callback])
     
     if args.load_ckpt or args.chat:
         state_dict = torch.load(os.path.join(os.getcwd(), args.root_dir, 'last.ckpt'))["state_dict"]
